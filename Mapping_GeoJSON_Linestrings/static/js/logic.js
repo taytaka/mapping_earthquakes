@@ -33,12 +33,8 @@ L.control.layers(baseMaps).addTo(map);
 let torontoData = "https://raw.githubusercontent.com/taytaka/Mapping_Earthquakes/main/torontoRoutes.json";
 
 // Grabbing our GeoJSON data.
-d3.json(airportData).then(function(data) {
+d3.json(torontoData).then(function(data) {
     console.log(data);
   // Creating a GeoJSON layer with the retrieved data.
-  L.geoJson(data, {
-      onEachFeature: function(feature, layer) {
-        layer.bindPopup("<h3>Airport code: " + feature.properties.faa + "</h3><hr><h4>Airport name: " + feature.properties.name + "</h4>")
-      }
-  }).addTo(map);
+  L.geoJson(data).addTo(map);
 });
